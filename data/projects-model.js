@@ -3,7 +3,7 @@ const mappers = require('./mappers');
 
 module.exports = {
   get,
-  // addDish,
+  insert,
   // getDish,
   // getRecipes,
   // addRecipe
@@ -32,5 +32,13 @@ function get(id) {
 
   return query.then(projects => {
     return projects.map(project => mappers.projectToBody(project));
+  });
+}
+
+function insert(project) {
+  return db('projects')
+  .insert(project)
+  .then(ids => {
+    return ids[0]
   });
 }
