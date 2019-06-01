@@ -4,6 +4,7 @@ const mappers = require('./mappers');
 module.exports = {
   get,
   insert,
+  insertAction,
   remove,
   getProjectActions
 };
@@ -38,6 +39,14 @@ function get(id) {
 function insert(project) {
   return db('projects')
   .insert(project)
+  .then(ids => {
+    return ids[0]
+  });
+}
+
+function insertAction(action) {
+  return db('actions')
+  .insert(action)
   .then(ids => {
     return ids[0]
   });
