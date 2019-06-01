@@ -30,6 +30,7 @@ function projectToBody(project) {
 }
 
 function actionToBody(action) {
+  // destructure because we don't want project_id in the final results
   const { project_id, ...otherProps } = action;
 
   return {

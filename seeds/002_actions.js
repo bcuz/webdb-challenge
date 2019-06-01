@@ -4,6 +4,6 @@ exports.seed = function(knex, Promise) {
   // we just worry about seeding records in all other seeds
   return knex('actions').insert([
     { notes: 'prob need to integrate babel', description: 'convert es5 to es6', project_id: 2 },
-    { notes: 'challenge', description: 'doing stuff', project_id: 1 },
+    { notes: 'action notes', description: 'action description', project_id: 1 },
   ]);
 };
