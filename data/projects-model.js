@@ -6,7 +6,8 @@ module.exports = {
   insert,
   // getDish,
   // getRecipes,
-  // addRecipe
+  // addRecipe,
+  getProjectActions
 };
 
 function get(id) {
@@ -41,4 +42,10 @@ function insert(project) {
   .then(ids => {
     return ids[0]
   });
+}
+
+function getProjectActions(projectId) {
+  return db('actions')
+    .where('project_id', projectId)
+    .then(actions => actions.map(action => mappers.actionToBody(action)));
 }

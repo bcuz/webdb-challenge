@@ -30,8 +30,10 @@ function projectToBody(project) {
 }
 
 function actionToBody(action) {
+  const { project_id, ...otherProps } = action;
+
   return {
-    ...action,
+    ...otherProps,
     completed: intToBoolean(action.completed),
   };
 }

@@ -18,6 +18,23 @@ server.get('/projects', async (req, res) => {
     });
   }
 });
+server.get('/projects/:id', async (req, res) => {
+  try {
+    const project = await Projects.get(req.params.id);
+
+    if (project) {
+      res.status(200).json(project);
+    } else {
+      res.status(404).json({ message: 'project not found' });
+    }
+  } catch (error) {
+    // log error to server
+    console.log(error);
+    res.status(500).json({
+      message: 'Error retrieving the project',
+    });
+  }
+});
 
 server.post('/projects', async (req, res) => {
   try {
