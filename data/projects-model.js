@@ -4,9 +4,7 @@ const mappers = require('./mappers');
 module.exports = {
   get,
   insert,
-  // getDish,
-  // getRecipes,
-  // addRecipe,
+  remove,
   getProjectActions
 };
 
@@ -43,6 +41,12 @@ function insert(project) {
   .then(ids => {
     return ids[0]
   });
+}
+
+function remove(id) {
+  return db('projects')
+    .where({ id })
+    .del();
 }
 
 function getProjectActions(projectId) {
