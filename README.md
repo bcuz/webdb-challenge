@@ -39,7 +39,7 @@ It's needed to uniquely identify each row. It allows you to modify a row without
 1. What is the name given to a table column that references the primary key on another table.
 foreign key
 1. What do we need in order to have a _many to many_ relationship between two tables.
-junction table. each row contains the primary key both tables.
+junction table. each row contains the primary key of both tables.
 
 ## Project Set Up
 
